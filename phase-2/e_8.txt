@@ -1,0 +1,64 @@
+int merge(int left[],int right[],int size1,int size2){
+    int i,j,k;
+    i=0;
+    j=0;
+    k=0;
+    int a[size1+size2];
+    while(i<size1 && j<size2){
+        if(left[i]<=right[j]){
+            a[k]=left[i];
+            i=i+1;
+            k=k+1;
+        }
+        else{
+            a[k]=right[j];
+            j=j+1;
+            k=k+1;
+        }
+    }
+    while(i<size1){
+        a[k]=left[i];
+        i=i+1;
+        k=k+1;
+    }
+    while(j<size2){
+        a[k]=right[j];
+        j=j+1;
+        k=k+1;
+    }
+    return 0;
+}
+int mergesort(int a[],int l,int r,int n){
+    if(l==r){
+        return 0;
+    }
+    int m;
+    m=(l+r)/2;
+    int a_left[m-l],a_right[r-m+1];
+    int i;
+    for(i=0;i<m-l;i=i+1){
+        a_left[i]=a[i+l];
+    }
+    for(i=0;i<r-m+1;i++){
+        a_right[i]=a[i+m];
+    }
+    mergesort(a_left,l,m-1,m-l);
+    mergesort(a_right,m,r,r-m+1);
+    merge(a_left,a_right,m-l,r-m+1);
+    return 0;
+}
+int main(){
+    int n,i;
+    scan(n);
+    int a[n];
+    for(i=0;i<n;i++){
+    scan(a[i]);
+    }
+    mergesort(a,0,n-1,n);
+    for(i=0;i<n;i++){
+        print(a[i]);
+        print("");
+    }
+    print("\n");
+    return 0;
+}
