@@ -10,11 +10,8 @@ int main() {
     int i,N,k;
     int sum;
     sum=0;
-scan(N) ;
-scan(l) ;
 for(i=1;i<=N;i=i+1){
     sum=sum+power(i,k);
 }
-print(sum);
 return 0;
 }
