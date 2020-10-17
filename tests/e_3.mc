@@ -5,13 +5,15 @@ int checkprime(int N){
     for(i=2;i*i<N;i=i+1){
     if(N%i==0){
         flag=0;
+    }
+    else{
+        flag=1;
         }
     }
     return flag;
 }
 int main(){
     int N,sum,i;
-    scan(N);
     int flag;
     sum=0;
     for(i=2;i<N;i=i+1){
@@ -19,7 +21,9 @@ int main(){
         if(flag==1){
             sum=(sum+i);
         }
+        else{
+            sum=sum;
+        }
     }
-    print(sum);
     return 0;
 }
