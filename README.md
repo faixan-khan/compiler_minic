@@ -33,7 +33,7 @@ $ source ~/.bashrc
 $ cd antlr
 $ make 
 ```
-### To Run
+### To Run Use
 
 General command:
 ```bash
